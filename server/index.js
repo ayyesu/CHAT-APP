@@ -7,6 +7,10 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+app.get('/', (req, res) => {
+    res.send('Welcome to the chat app api');
+});
+
 const connection_string = process.env.ATLAS_URI;
 
 mongoose
