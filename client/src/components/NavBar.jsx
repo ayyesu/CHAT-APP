@@ -7,6 +7,7 @@ const NavBar = () => {
                 <Link to='/' className='text-2xl items-center'>
                     Chat App
                 </Link>
+                <span className='text-blue-300'>Logged in as Daniel</span>
                 <nav>
                     <Link to='/register' className='mr-4'>
                         Register
