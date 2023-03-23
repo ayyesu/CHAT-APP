@@ -33,9 +33,9 @@ const Login = () => {
                                     Submit
                                 </button>
                             </div>
-                            <alert className='text-red-500'>
+                            <span className='text-red-500'>
                                 <p>An error occured</p>
-                            </alert>
+                            </span>
                         </div>
                     </form>
                 </div>

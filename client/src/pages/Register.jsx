@@ -1,4 +1,8 @@
+import {useContext} from 'react';
+import {AuthContext} from '../context/AuthContext';
+
 const Register = () => {
+    const {registerInfo, updateRegisterInfo} = useContext(AuthContext);
     return (
         <>
             <div className='flex flex-col items-center justify-center h-[80vh]'>
@@ -15,6 +19,12 @@ const Register = () => {
                                     className='w-[20rem] rounded-lg h-[2rem] outline-none text-slate-800 p-3'
                                     name='name'
                                     id='name'
+                                    onChange={(e) =>
+                                        updateRegisterInfo({
+                                            ...registerInfo,
+                                            name: e.target.value,
+                                        })
+                                    }
                                 />
                             </div>
                             <div>
@@ -26,6 +36,12 @@ const Register = () => {
                                     className='w-[20rem] rounded-lg h-[2rem] outline-none text-slate-800 p-3'
                                     name='email'
                                     id='email'
+                                    onChange={(e) => {
+                                        updateRegisterInfo({
+                                            ...registerInfo,
+                                            email: e.target.value,
+                                        });
+                                    }}
                                 />
                             </div>
                             <div>
@@ -37,6 +53,12 @@ const Register = () => {
                                     className='w-[20rem] rounded-lg h-[2rem] outline-none text-slate-800 p-3'
                                     name='password'
                                     id='password'
+                                    onChange={(e) => {
+                                        updateRegisterInfo({
+                                            ...registerInfo,
+                                            password: e.target.value,
+                                        });
+                                    }}
                                 />
                             </div>
                             <div>
@@ -44,9 +66,9 @@ const Register = () => {
                                     Submit
                                 </button>
                             </div>
-                            <alert className='text-red-500'>
+                            <span className='text-red-500'>
                                 <p>An error occured</p>
-                            </alert>
+                            </span>
                         </div>
                     </form>
                 </div>
