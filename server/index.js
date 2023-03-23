@@ -6,8 +6,8 @@ const userRoute = require('./Routes/userRoute');
 
 const app = express();
 
+app.use(cors({preflightContinue: true}));
 app.use(express.json());
-app.use(cors());
 app.use('/api/users', userRoute);
 
 app.get('/', (req, res) => {
