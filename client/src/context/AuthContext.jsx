@@ -8,13 +8,18 @@ export const AuthContextProvider = ({children}) => {
     const [user, setUser] = useState(null);
     const [registerError, setRegisterError] = useState(null);
     const [isRegistering, setIsRegistering] = useState(false);
+    const [loginError, setLoginError] = useState(null);
+    const [isLoggingIn, setIsLoggingIn] = useState(false);
     const [registerInfo, setRegisterInfo] = useState({
         name: '',
         email: '',
         password: '',
     });
+    const [loginInfo, setLoginInfo] = useState({
+        email: '',
+        password: '',
+    });
 
-    console.log('user', user);
     useEffect(() => {
         const user = localStorage.getItem('User');
 
@@ -44,6 +49,29 @@ export const AuthContextProvider = ({children}) => {
         [registerInfo],
     );
 
+    const updateLoginInfo = useCallback((info) => {
+        setLoginInfo(info);
+    }, []);
+
+    const loginUser = useCallback(
+        async (e) => {
+            e.preventDefault();
+            setIsLoggingIn(true);
+            setLoginError(null);
+            const response = await postRequest(
+                `${baseUrl}/users/login`,
+                JSON.stringify(loginInfo),
+            );
+            setIsLoggingIn(false);
+            if (response.error) {
+                return setLoginError(response);
+            }
+            localStorage.setItem('User', JSON.stringify(response));
+            setUser(response);
+        },
+        [loginInfo],
+    );
+
     const logoutUser = useCallback(() => {
         localStorage.removeItem('User');
         setUser(null);
@@ -59,6 +87,11 @@ export const AuthContextProvider = ({children}) => {
                 registerError,
                 isRegistering,
                 logoutUser,
+                loginInfo,
+                loginUser,
+                isLoggingIn,
+                updateLoginInfo,
+                loginError,
             }}
         >
             {children}
