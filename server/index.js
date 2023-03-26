@@ -3,12 +3,14 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config({path: './.env'});
 const userRoute = require('./Routes/userRoute');
+const chatRoute = require('./Routes/chatRoute');
 
 const app = express();
 
 app.use(cors({preflightContinue: true}));
 app.use(express.json());
 app.use('/api/users', userRoute);
+app.use('/api/chats', chatRoute);
 
 app.get('/', (req, res) => {
     res.send('Welcome to the chat app api');
