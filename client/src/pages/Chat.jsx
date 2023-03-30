@@ -2,6 +2,7 @@ import {useContext} from 'react';
 import UserChat from '../components/chat/UserChat';
 import {AuthContext} from '../context/AuthContext';
 import {ChatContext} from '../context/ChatContext';
+import PotentialChats from '../components/chat/PotentialChats';
 
 const CHAT = () => {
     const {user} = useContext(AuthContext);
@@ -10,6 +11,7 @@ const CHAT = () => {
 
     return (
         <>
+            <PotentialChats />
             <div className='text-red-500'>
                 <div className='container'>
                     {userChats?.length > 0 ? (

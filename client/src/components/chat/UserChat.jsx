@@ -7,7 +7,7 @@ const UserChat = ({chat, user}) => {
     console.log('Recipient User', recipientUser);
 
     return (
-        <div className='flex' role='button'>
+        <div className='flex mt-2' role='button'>
             <div className='user-card items-center p-2 justify-between'>
                 <div className='flex'>
                     <div className='mr-4'>
