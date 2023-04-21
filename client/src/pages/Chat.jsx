@@ -6,7 +6,7 @@ import PotentialChats from '../components/chat/PotentialChats';
 
 const CHAT = () => {
     const {user} = useContext(AuthContext);
-    const {userChats, isUserChatsLoading, userChatError} =
+    const {userChats, isUserChatsLoading, updateCurrentChat} =
         useContext(ChatContext);
 
     return (
@@ -20,7 +20,12 @@ const CHAT = () => {
                                 {isUserChatsLoading && <p>Fetching Chats..</p>}
                                 {userChats?.map((chat, index) => {
                                     return (
-                                        <div key={index}>
+                                        <div
+                                            key={index}
+                                            onClick={() =>
+                                                updateCurrentChat(chat)
+                                            }
+                                        >
                                             <UserChat chat={chat} user={user} />
                                         </div>
                                     );

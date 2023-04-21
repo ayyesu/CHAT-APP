@@ -4,8 +4,6 @@ import avatar from '../../assets/avatar.svg';
 const UserChat = ({chat, user}) => {
     const {recipientUser} = useFetchRecipientUser(chat, user);
 
-    console.log('Recipient User', recipientUser);
-
     return (
         <div className='flex mt-2' role='button'>
             <div className='user-card items-center p-2 justify-between'>
