@@ -3,6 +3,7 @@ import UserChat from '../components/chat/UserChat';
 import {AuthContext} from '../context/AuthContext';
 import {ChatContext} from '../context/ChatContext';
 import PotentialChats from '../components/chat/PotentialChats';
+import ChatBox from '../components/chat/ChatBox';
 
 const CHAT = () => {
     const {user} = useContext(AuthContext);
@@ -31,7 +32,9 @@ const CHAT = () => {
                                     );
                                 })}
                             </div>
-                            <div>Chat Box</div>
+                            <div>
+                                <ChatBox />
+                            </div>
                         </div>
                     ) : (
                         <>There are no chats available</>

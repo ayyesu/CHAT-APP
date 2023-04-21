@@ -19,9 +19,7 @@ const UserChat = ({chat, user}) => {
                 </div>
             </div>
             <div className='flex flex-col items-end'>
-                <div className='date'>
-                    {new Date(chat?.lastMessage?.createdAt).toLocaleString()}
-                </div>
+                <div className='date'></div>
                 <div className='this-user-notifications'>2</div>
             </div>
         </div>

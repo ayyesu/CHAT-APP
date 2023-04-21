@@ -10,7 +10,6 @@ const createChat = async (req, res) => {
         const newChat = new chatModel({members: [firstId, secondId]});
         const response = await newChat.save();
         res.status(200).json(response);
-        res.status(200).json(newChat);
     } catch (error) {
         res.status(500).json(error);
     }

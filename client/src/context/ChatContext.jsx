@@ -13,7 +13,6 @@ export const ChatContextProvider = ({children, user}) => {
     const [isMessagesLoading, setIsMessagesLoading] = useState(false);
     const [messagesError, setMessagesError] = useState(null);
 
-    console.log('Messages: ', messages);
     useEffect(() => {
         const getUsers = async () => {
             const response = await getRequest(`${baseUrl}/users`);
@@ -24,7 +23,7 @@ export const ChatContextProvider = ({children, user}) => {
             const filteredUsers = response.filter((u) => {
                 let isChatCreated = false;
 
-                if (user._id === u._id) return false;
+                if (user?._id === u?._id) return false;
 
                 if (userChats) {
                     isChatCreated = userChats?.some((chat) => {
@@ -104,6 +103,10 @@ export const ChatContextProvider = ({children, user}) => {
                 potentialChats,
                 createChat,
                 updateCurrentChat,
+                currentChat,
+                messages,
+                isMessagesLoading,
+                messagesError,
             }}
         >
             {children}
