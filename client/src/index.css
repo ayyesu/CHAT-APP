@@ -115,12 +115,18 @@ body {
 
 /* Chat Input  */
 .chat-input {
+    display: flex;
+    margin-top: 16em;
     width: 100%;
     background: rgb(30, 30, 30);
     padding: 1rem;
 }
 .send-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: none;
+    margin: 0 auto;
     background: rgba(72, 112, 223, 1);
     color: white;
     height: 40px;
