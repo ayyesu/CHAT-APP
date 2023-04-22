@@ -8,7 +8,7 @@ const NavBar = () => {
         <nav className='h-[40px] mb-6 bg-gray-600'>
             <div className='container flex justify-between items-center'>
                 <Link to='/' className='text-2xl items-center'>
-                    Chat App
+                    Chat<strong className='text-blue-400'>ZOO</strong>
                 </Link>
                 {user && (
                     <>
