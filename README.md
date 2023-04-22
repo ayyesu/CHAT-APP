@@ -9,6 +9,8 @@ Welcome to CHAT-APP! This is a simple chat application built with Express for th
 - [x] Logout a user
 - [x] Display logged in user
 - [ ] New message notification
+- [ ] Deleting a message from both users
+- [ ] Upload and Display user profile photo
 
 ## Getting Started
 To get started with CHAT-APP, you'll need to clone this repository to your local machine. You can do this by running the following command in your terminal:
