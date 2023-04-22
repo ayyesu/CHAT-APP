@@ -1,6 +1,15 @@
 # CHAT-APP
 Welcome to CHAT-APP! This is a simple chat application built with Express for the backend and React for the frontend. You can use this app to chat with friends and family in real-time.
 
+## Features
+- [x] Sending and receving messages
+- [x] Sending emojies
+- [x] Register a user
+- [x] Login a user
+- [x] Logout a user
+- [x] Display logged in user
+- [ ] New message notification
+
 ## Getting Started
 To get started with CHAT-APP, you'll need to clone this repository to your local machine. You can do this by running the following command in your terminal:
 `git clone https://github.com/ayyesu/CHAT-APP.git
@@ -18,4 +27,3 @@ This will start both the backend and frontend servers. You can access the app by
 
 ## Contributing
 If you'd like to contribute to CHAT-APP, feel free to submit a pull request. We welcome any and all contributions!
-
