@@ -8,7 +8,8 @@ import InputEmoji from 'react-input-emoji';
 
 const ChatBox = () => {
     const {user} = useContext(AuthContext);
-    const {currentChat, messages, isMessagesLoading} = useContext(ChatContext);
+    const {currentChat, messages, isMessagesLoading, sendTextMessage} =
+        useContext(ChatContext);
     const {recipientUser} = useFetchRecipientUser(currentChat, user);
     const [textMessage, setTextMessage] = useState('');
 
@@ -36,8 +37,8 @@ const ChatBox = () => {
                             key={index}
                             className={`${
                                 message?.senderId === user?._id
-                                    ? 'message self align-self-end flex-grow-0'
-                                    : 'message align-self-start flex-grow-0'
+                                    ? 'message flex self flex-grow-0'
+                                    : 'message flex flex-start flex-grow-0'
                             }`}
                         >
                             <span>{message.text}</span>
@@ -49,7 +50,17 @@ const ChatBox = () => {
             </div>
             <div className='chat-input'>
                 <InputEmoji value={textMessage} onChange={setTextMessage} />
-                <button className='send-btn'>
+                <button
+                    className='send-btn'
+                    onClick={() =>
+                        sendTextMessage(
+                            textMessage,
+                            user,
+                            currentChat._id,
+                            setTextMessage,
+                        )
+                    }
+                >
                     <svg
                         xmlns='http://www.w3.org/2000/svg'
                         width='18'
